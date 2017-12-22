@@ -1,0 +1,24 @@
+#ifndef VEHICLE
+#define VEHICLE
+
+enum VehicleType {
+    VT_TwoWheeler,    VT_ThreeWheeler,    VT_FourWheeler
+};
+
+class Vehicle {
+public:
+    virtual void printVehicle(int) = 0;
+    void setLicense(std::string);
+    std::string getLicense();
+
+    int base;
+    const int time_t = 5;
+    std::string license;
+};
+
+class VehicleFactory
+{
+    static Vehicle *Create(VehicleType type);
+};
+
+#endif

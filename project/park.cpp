@@ -10,7 +10,7 @@ void Park::enter(Vehicle *pt)
 {
     Slot s;
     s.setVehicle(pt);
-    s.id=--count;
+    //s.id=--count;
     spaces.push_back(s);
 }
 

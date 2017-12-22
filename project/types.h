@@ -17,3 +17,9 @@ class FourWheeler : public Vehicle
   public:
     void printVehicle(int);
 };
+
+class VehicleFactory
+{
+public:
+  static Vehicle *Create(VehicleType type);
+};

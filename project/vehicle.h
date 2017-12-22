@@ -17,9 +17,4 @@ public:
     std::string license;
 };
 
-class VehicleFactory
-{
-    static Vehicle *Create(VehicleType type);
-};
-
 #endif

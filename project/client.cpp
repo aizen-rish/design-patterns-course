@@ -1,7 +1,8 @@
 #include <iostream>
-#include "vehicle.h"
+#include "types.h"
 using namespace std;
 
+#if 1
 class Client 
 {
 
@@ -29,12 +30,15 @@ class Client
     }
  
 };
-
+#endif 
 int main() 
 {
+    Vehicle *d =VehicleFactory::Create(VT_FourWheeler);
+    d->printVehicle(34);
+    #if 1
     Client *pClient1 = new Client(VT_ThreeWheeler);
     Vehicle * pVehicle1 = pClient1->getVehicle();
-    //pVehicle1->calculate_cost(15);
+    pVehicle1->printVehicle(15);
     
     Client *pClient2 = new Client(VT_TwoWheeler);
     Vehicle * pVehicle2 = pClient2->getVehicle();
@@ -43,5 +47,6 @@ int main()
     Client *pClient3 = new Client(VT_TwoWheeler);
     Vehicle * pVehicle3 = pClient3->getVehicle();
     //pVehicle3->calculate_cost(5);
+    #endif
     return 0;
 }

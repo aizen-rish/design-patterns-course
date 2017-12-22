@@ -1,6 +1,7 @@
 #ifndef VEHICLE
 #define VEHICLE
 
+#include<string>
 enum VehicleType {
     VT_TwoWheeler,    VT_ThreeWheeler,    VT_FourWheeler
 };
@@ -12,7 +13,7 @@ public:
     std::string getLicense();
 
     int base;
-    const int time_t = 5;
+    static const int time_t = 5;
     std::string license;
 };
 

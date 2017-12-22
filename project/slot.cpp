@@ -2,16 +2,27 @@
 
 #include "slot.h"
 
-
+void Slot::setVehicle(Vehicle *p)
+{
+    vh_t = p;
+    pTime = vh_t->time_t;
+}
 
 void Slot::setPTime(int time)
 {
     pTime=time;
+    
 }
 int Slot::getPTime()
 {
     return pTime;
 }
+
+int Slot::getID()
+{
+    return id;
+}
+
 
 #if 0
 

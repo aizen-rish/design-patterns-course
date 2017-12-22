@@ -6,17 +6,24 @@
 
 using namespace std;
 
-void Park::enter(string lic, int time, int type)
+void Park::enter(Vehicle *pt)
 {
     Slot s;
-    s.setLicense(lic);
-    s.setPTime(time);
-    s.setType(type);
-
-    spaces.insert(s);
+    s.setVehicle(pt);
+    s.id=--count;
+    spaces.push_back(s);
 }
 
-void remove(int license, int type)
+Park::Park()
 {
-    
+    count=0;
+}
+void Park::remove()
+{
+
+}
+
+int Park::getCapacity()
+{
+    return maxSize;
 }

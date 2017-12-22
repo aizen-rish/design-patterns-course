@@ -1,20 +1,21 @@
 #ifndef PARKH
 #define PARKH
 
-#include <set>
+#include <vector>
 #include "slot.h"
 
 class Park
 {
     private:
-        std::set< Slot > spaces;
+        vector<Slot> spaces;
+        int count;
         const int maxSize=25;
 
     public:
         Park();
         ~Park();
 
-        void enter(std::string , int , int);
+        void enter(Vehicle*);
         void remove();
         int getCapacity();
         

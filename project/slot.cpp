@@ -18,13 +18,24 @@ int Slot::getPTime()
     return pTime;
 }
 
-int Slot::getID()
+Slot::Slot()
 {
-    return id;
+    vh_t=NULL;
+    pTime=0;
 }
 
 
 #if 0
+
+int Slot::getID() const
+{
+    return id;
+}
+
+bool operator<(const Slot &left, const Slot &right)
+{
+    return left.getID() < right.getID();
+}
 
 void Slot::setType( int typ )
 {

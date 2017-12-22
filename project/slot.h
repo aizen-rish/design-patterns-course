@@ -10,19 +10,15 @@ class Slot
     private:
         Vehicle *vh_t;
         int pTime;      //time_t
-        int id;
+        //int id;
 
     public:
-        //Slot();
+        Slot();
         void setVehicle(Vehicle *);
         
         void setPTime( int );
-        //void setType( int );
-        
-        int getID();
         int getPTime();
-        //int getType();
-
+        //int getID() const;
 
 };
 

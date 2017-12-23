@@ -12,7 +12,7 @@ class Park
     private:
         MyMap spaces;
         static int count;
-        //static int maxSize=25;
+        static int space;
         static const int totalSpace=100;
     public:
         Park();
@@ -20,14 +20,31 @@ class Park
 
         friend class ParkIter;
 
-        void enter(int ,Vehicle*);
+        int getSpace()
+        {
+            return space;
+        }
+        void updateSpace(int x)
+        {
+            space+=x;
+        }
+        static int getCount()
+        {
+            return count;
+        }
+        static void updateCount(int x)
+        {
+            count += x;
+        }
+
+        void enter(Vehicle*,int);
         void remove(Vehicle*);
         
         int getCapacity();
         
         int findEmpty();
         void display();
-       // ParkIter *createIterator() const;
+        ParkIter* createIterator() const;
 };
 
 class ParkIter
@@ -50,7 +67,7 @@ class ParkIter
         }
         void last()
         {
-            ind=prk->maxSize-1;
+            ind=prk->getCount()-1;
         }
         Slot* currentItem()
         {
@@ -62,7 +79,7 @@ class ParkIter
         }
         bool isDone()
         {
-            return ind == prk->maxSize;
+            return ind == prk->getCount();
         }
         int getIndex()
         {

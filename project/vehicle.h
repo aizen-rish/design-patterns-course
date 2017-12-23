@@ -17,7 +17,7 @@ public:
       return size;
     }
 
-int size;
+    int size;
     static const int time_t = 5;
     std::string license;
 };

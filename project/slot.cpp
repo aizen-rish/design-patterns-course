@@ -18,32 +18,19 @@ int Slot::getPTime()
     return pTime;
 }
 
-Slot::Slot()
+Slot::Slot(int space)
 {
     vh_t=NULL;
+    this->space=space;
     pTime=0;
 }
 
-
-#if 0
-
-int Slot::getID() const
+Vehicle* Slot::getVehicle()
 {
-    return id;
+    return vh_t;
 }
 
-bool operator<(const Slot &left, const Slot &right)
+void Slot::displayVehicle()
 {
-    return left.getID() < right.getID();
+    std::cout<<"Vehicle at Slot : "<<vh_t->getLicense()<<std::endl;
 }
-
-void Slot::setType( int typ )
-{
-    type=typ;
-}
-int Slot::getType()
-{
-    return type;
-}
-
-#endif

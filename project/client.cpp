@@ -34,8 +34,11 @@ class Client
 int main() 
 {
     Vehicle *d =VehicleFactory::Create(VT_FourWheeler);
+    d->setLicense(" KA D# 3454");
     d->printVehicle(34);
-    #if 1
+
+    cout<<d->getSize()<<" "<<d->getLicense();
+    #if 0
     Client *pClient1 = new Client(VT_ThreeWheeler);
     Vehicle * pVehicle1 = pClient1->getVehicle();
     pVehicle1->printVehicle(15);

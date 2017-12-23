@@ -6,13 +6,18 @@ enum VehicleType {
     VT_TwoWheeler,    VT_ThreeWheeler,    VT_FourWheeler
 };
 
-class Vehicle {
+class Vehicle 
+{
 public:
     virtual void printVehicle(int) = 0;
     void setLicense(std::string);
     std::string getLicense();
+    int getSize()
+    {
+      return size;
+    }
 
-    int base;
+int size;
     static const int time_t = 5;
     std::string license;
 };

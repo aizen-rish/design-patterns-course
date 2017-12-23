@@ -6,12 +6,32 @@ typedef std::pair<int, Slot*> MyPair;
 
 using namespace std;
 
-void Park::enter(int id,Vehicle *pt)
+ParkIter::ParkIter(Park *s,int i)
 {
-    Slot *s=new Slot();
+    prk = s;
+    ind=i;
+}
+
+ParkIter::ParkIter(Park *s)
+{
+    prk=s;
+}
+
+Park::Park()
+{   
+    //for(int i=0;i<maxSize;i++)
+    //    spaces.insert(MyPair(i,NULL));
+}
+
+
+void Park::enter(Vehicle *pt,int scost)
+{
+    Slot *s=new Slot(scost);
     s->setVehicle(pt);
-    //spaces.begin()->second=s; //Find proper iterator to the element needed
-    int index=findEmpty();
+
+    spaces.insert(MyPair(count++,s));
+    
+    //int index=findEmpty();
     if(index==-1)
     {
         cout<<" Parking full !\n";
@@ -20,27 +40,21 @@ void Park::enter(int id,Vehicle *pt)
     ParkIter *mod=new ParkIter(this,index);
     mod->setItem(s);
     cout<<"Entered the parking!!\n";
-
 }
 
-ParkIter::ParkIter(Park *s,int i)
-{
-    prk = s;
-    ind=i;
-}
-
-Park::Park()
-{   
-    //Slot *s=new Slot();
-    for(int i=0;i<maxSize;i++)
-        spaces.insert(MyPair(i,NULL));
-}
 void Park::remove(Vehicle *pt)
 {
-    //Slot s;
-    //s.setVehicle(pt);
-    //spaces.erase( std::find(spaces.begin(), spaces.end(), s) );
-    //count--;
+    ParkIter *ser = new ParkIter(this);
+    ser->first();
+    
+    while (!ser->isDone())
+    {
+        if (ser->currentItem()->getVehicle() == pt )
+        {
+            ser->setItem(NULL);
+        }
+        ser->next();
+    }
 }
 
 int Park::findEmpty()
@@ -65,9 +79,20 @@ int Park::getCapacity()
     return maxSize;
 }
 
-ParkIter::ParkIter(Park *s)
+
+void Park::display()
 {
-    prk=s;
+    ParkIter *ser = new ParkIter(this);
+    ser->first();
+    while (!ser->isDone())
+    {
+        if (ser->currentItem() != NULL)
+        {
+            ser->currentItem()->displayVehicle();
+            
+        }
+        ser->next();
+    }
 }
 /*
 ParkIter *Park::createIterator() const

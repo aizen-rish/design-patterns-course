@@ -3,6 +3,7 @@
 
 #include <map>
 #include "slot.h"
+#include "strategy.h"
 
 typedef std::map<int, Slot *> MyMap;
 
@@ -11,8 +12,8 @@ class Park
     private:
         MyMap spaces;
         static int count;
-        static const int maxSize=25;
-
+        //static int maxSize=25;
+        static const int totalSpace=100;
     public:
         Park();
        // ~Park();
@@ -21,10 +22,11 @@ class Park
 
         void enter(int ,Vehicle*);
         void remove(Vehicle*);
+        
         int getCapacity();
         
         int findEmpty();
-
+        void display();
        // ParkIter *createIterator() const;
 };
 
@@ -39,13 +41,11 @@ class ParkIter
         ParkIter(Park*,int);
         void first()
         {
-            //index = prk.spaces.begin();
             ind=0;
-            //return prk->spaces[ind];
+        
         }
         void next()
         {
-            //index=index++;
             ind++;
         }
         void last()
@@ -62,13 +62,14 @@ class ParkIter
         }
         bool isDone()
         {
-            //return index == prk.spaces.end();
             return ind == prk->maxSize;
         }
         int getIndex()
         {
             return ind;
         }
+
+        
 
 };
 #endif

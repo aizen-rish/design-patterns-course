@@ -11,16 +11,22 @@ void Park::enter(int id,Vehicle *pt)
     Slot *s=new Slot();
     s->setVehicle(pt);
     //spaces.begin()->second=s; //Find proper iterator to the element needed
-    ParkIter *ser = new ParkIter(this);
-    ser->first();
-    while(! ser->isDone())
+    int index=findEmpty();
+    if(index==-1)
     {
-        if(ser->currentItem() == NULL)
-            ser->setItem(s);
-        ser->next();
+        cout<<" Parking full !\n";
+        return;
     }
-    cout<<"Entered !\n";
+    ParkIter *mod=new ParkIter(this,index);
+    mod->setItem(s);
+    cout<<"Entered the parking!!\n";
 
+}
+
+ParkIter::ParkIter(Park *s,int i)
+{
+    prk = s;
+    ind=i;
 }
 
 Park::Park()
@@ -39,9 +45,19 @@ void Park::remove(Vehicle *pt)
 
 int Park::findEmpty()
 {
-    //for (int i = 0; i < maxSize; i++)
-    //find the aprropraite place
-    return 1;
+    ParkIter *ser = new ParkIter(this);
+    ser->first();
+    while (!ser->isDone())
+    {
+        if (ser->currentItem() == NULL)
+        {
+          
+            return ser->getIndex();
+        }
+        ser->next();
+    }
+    return -1;
+    
 }
 
 int Park::getCapacity()

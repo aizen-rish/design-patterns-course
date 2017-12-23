@@ -36,6 +36,7 @@ class ParkIter
         int ind;
     public:
         ParkIter(Park*);
+        ParkIter(Park*,int);
         void first()
         {
             //index = prk.spaces.begin();
@@ -63,6 +64,10 @@ class ParkIter
         {
             //return index == prk.spaces.end();
             return ind == prk->maxSize;
+        }
+        int getIndex()
+        {
+            return ind;
         }
 
 };

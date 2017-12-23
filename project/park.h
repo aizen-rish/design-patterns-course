@@ -55,6 +55,10 @@ class ParkIter
         {
             return prk->spaces[ind];
         }
+        void setItem(Slot *s)
+        {   
+            prk->spaces[ind]=s;
+        }
         bool isDone()
         {
             //return index == prk.spaces.end();

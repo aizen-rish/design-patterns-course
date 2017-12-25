@@ -16,7 +16,7 @@ class Park
         static const int totalSpace=100;
     public:
         Park();
-       // ~Park();
+        ~Park();
 
         friend class ParkIter;
 
@@ -24,6 +24,7 @@ class Park
         {
             return space;
         }
+        
         void updateSpace(int x)
         {
             space+=x;
@@ -37,6 +38,7 @@ class Park
             count += x;
         }
 
+        void designPark();
         void enter(Vehicle*,int);
         void remove(Vehicle*);
         

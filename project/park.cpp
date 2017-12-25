@@ -19,8 +19,22 @@ ParkIter::ParkIter(Park *s)
 
 Park::Park()
 {   
-    //for(int i=0;i<maxSize;i++)
-    //    spaces.insert(MyPair(i,NULL));
+    for(int i=0;i<maxSize;i++)
+    {
+        spaces.insert(MyPair(i,NULL));
+    }
+}
+
+Park::~Park()
+{
+ 
+}
+
+void desginPark()
+{
+    Slot *s;
+    
+    s= new Slot();
 }
 
 
@@ -35,7 +49,7 @@ void Park::enter(Vehicle *pt,int scost)
         updateSpace(-scost);
         return;
     }
-    spaces.insert(MyPair(Park::getCount(),s));
+//    / spaces.insert(MyPair(Park::getCount(),s));
     Park::updateCount(1);
     //int index;
     //index=findEmpty();

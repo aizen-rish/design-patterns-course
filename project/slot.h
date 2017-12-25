@@ -12,6 +12,7 @@ class Slot
         int pTime;      //time_t
         int space;
     public:
+        Slot();
         Slot(int);
         void setVehicle(Vehicle *);
         Vehicle* getVehicle();

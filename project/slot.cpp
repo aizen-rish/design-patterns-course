@@ -25,6 +25,12 @@ Slot::Slot(int space)
     pTime=0;
 }
 
+Slot::Slot()
+{
+    vh_t=NULL;
+    pTime=0;
+}
+
 Vehicle* Slot::getVehicle()
 {
     return vh_t;
